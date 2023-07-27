@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import { formatDate } from '@/lib/utils';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const posts = await getCollection('posts');
+---
+
+<BaseLayout title="Blog">
+  <div class="space-y-1">
+    <h1 class="text-2xl text-neutral-100 font-extrabold tracking-tight">
+      Blog posts
+    </h1>
+    <p class="leading-6">Read about what I have to say!</p>
+  </div>
+  <article class="flex flex-col gap-4 divide-y divide-neutral-700">
+    {
+      posts.map((post) => (
+        <article class="flex flex-col gap-2">
+          <a
+            class="text-lg text-neutral-200 underline decoration-neutral-600 decoration-1 underline-offset-4 transition-colors hover:text-white hover:decoration-neutral-500"
+            href={`/blog/${post.slug}`}
+          >
+            {post.data.title}
+          </a>
+          <p class="text-base">{post.data.description}</p>
+          <span>{formatDate(post.data.date)}</span>
+        </article>
+      ))
+    }
+  </article>
+</BaseLayout>

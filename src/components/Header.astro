@@ -1,0 +1,65 @@
+---
+import { cn } from '@/lib/utils';
+import {
+  BirdIcon,
+  HomeIcon,
+  LucideIcon,
+  MessageCircleIcon
+} from 'lucide-react';
+
+type Link = {
+  icon: LucideIcon;
+  title: string;
+  path: string;
+};
+
+const links: Link[] = [
+  {
+    icon: HomeIcon,
+    title: 'Home',
+    path: '/'
+  },
+  {
+    icon: MessageCircleIcon,
+    title: 'Blog',
+    path: '/blog*'
+  }
+];
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="z-40 flex w-full flex-col gap-2 md:flex-row md:justify-between">
+  <a
+    class="flex items-center text-neutral-100 transition-colors hover:text-neutral-300 text-base"
+    href="/"
+  >
+    <BirdIcon className="w-4 h-4 mr-2" /> aelew
+  </a>
+
+  <nav role="navigation">
+    <ul role="list" class="flex flex-row gap-4">
+      {
+        links.map((link) => {
+          const isWildcard = link.path.endsWith('*');
+          const isActive =
+            link.path === pathname ||
+            (isWildcard && pathname.startsWith(link.path.slice(0, -1)));
+          return (
+            <li>
+              <a
+                href={isWildcard ? link.path.slice(0, -1) : link.path}
+                class={cn(
+                  'transition-colors hover:text-neutral-100 flex items-center',
+                  isActive && 'text-neutral-100'
+                )}
+              >
+                <link.icon className="w-4 h-4 mr-1" /> {link.title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+</header>

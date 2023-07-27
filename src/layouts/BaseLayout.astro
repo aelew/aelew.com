@@ -1,0 +1,35 @@
+---
+import Header from '../components/Header.astro';
+import BlurCircle from '../components/BlurCircle.astro';
+
+import '@fontsource-variable/inter';
+import '../styles/globals.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="My website and blog." />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} • aelew</title>
+  </head>
+  <body
+    class="antialiased container gap-12 md:gap-20 flex flex-col min-h-screen p-10 md:py-16 text-sm text-neutral-400"
+  >
+    <Header />
+    <BlurCircle position="top" color="bg-teal-500" />
+    <BlurCircle position="bottom" color="bg-blue-500" />
+    <main class="space-y-12 sm:space-y-20">
+      <slot />
+    </main>
+  </body>
+</html>

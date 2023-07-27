@@ -1,0 +1,17 @@
+---
+type Props = {
+  position: 'top' | 'bottom';
+  color: string;
+};
+
+const { position, color } = Astro.props;
+---
+
+<div
+  class:list={{
+    [`fixed -z-10 h-[134px] w-[134px] lg:w-[300px] lg:h-[300px] rounded-full ${color} blur-[150px] md:blur-[350px] opacity-50`]: true,
+    ['right-0 bottom-0']: position === 'bottom',
+    ['left-0 top-0']: position === 'top'
+  }}
+>
+</div>

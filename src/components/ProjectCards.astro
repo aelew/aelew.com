@@ -1,0 +1,106 @@
+---
+import {
+  type SimpleIcon,
+  siPython,
+  siDiscord,
+  siBitcoin,
+  siTypescript,
+  siAstro,
+  siTailwindcss
+} from 'simple-icons';
+
+type Project = {
+  title: string;
+  icons: SimpleIcon[];
+  href: string;
+  description: string;
+};
+
+const projects: Project[] = [
+  {
+    title: '💻 aelew.com',
+    icons: [siTailwindcss, siAstro, siTypescript],
+    href: 'https://github.com/aelew/aelew.com',
+    description:
+      "My personal site and blog powered by Astro and Tailwind CSS. You're looking at it right now!"
+  },
+  {
+    title: '🤖 CryptoTracker',
+    icons: [siDiscord, siPython, siBitcoin],
+    href: 'https://github.com/aelew/cryptotracker',
+    description:
+      'A Discord bot that notifies users when their cryptocurrency transactions confirm.'
+  }
+];
+---
+
+<div class="flex flex-col gap-4">
+  <header class="flex w-full flex-row justify-between gap-2">
+    <h3 class="text-lg text-neutral-100 font-medium">📝 Projects</h3>
+    <a
+      class="group transition-colors hover:text-neutral-100 flex items-center"
+      href="https://github.com/aelew?tab=repositories"
+      target="_blank"
+    >
+      View more on GitHub
+      <span
+        class="ml-1 inline-block translate-x-0 group-hover:translate-x-0.5 transition-transform ease-in-out duration-200"
+        aria-hidden="true"
+      >
+        &rarr;
+      </span>
+    </a>
+  </header>
+  <section class="grid sm:grid-cols-2 gap-4">
+    {
+      projects.map((project) => (
+        <a
+          class="relative group gap-2 flex flex-col rounded-lg ring-1 ring-neutral-700 p-4 transition-all duration-300 hover:-translate-y-1 hover:ring-neutral-500"
+          href={project.href}
+          target="_blank"
+        >
+          <div class="flex justify-between gap-2">
+            <h4 class="text-neutral-100">{project.title}</h4>
+            <div class="flex items-center gap-2">
+              {project.icons.map((icon) => (
+                <span
+                  class="[&>*]:w-4 [&>*]:h-4 [&>*]:fill-neutral-300"
+                  set:html={icon.svg}
+                />
+              ))}
+            </div>
+          </div>
+          <p>{project.description}</p>
+          <svg
+            class="pointer-events-none absolute w-full h-full inset-0 fill-gray-400/30 [mask-image:radial-gradient(200px_circle_at_center,white,transparent)]"
+            aria-hidden="true"
+          >
+            <defs>
+              <pattern
+                patternContentUnits="userSpaceOnUse"
+                patternUnits="userSpaceOnUse"
+                id="radial"
+                height="16"
+                width="16"
+                x="0"
+                y="0"
+              >
+                <circle cx="1" cy="1" r="1" />
+              </pattern>
+            </defs>
+            <rect
+              width="100%"
+              height="100%"
+              stroke-width="0"
+              fill="url(#radial)"
+            />
+          </svg>
+          <div
+            class="absolute pointer-events-none inset-0"
+            style="background-image: radial-gradient(300px, rgba(120, 119, 198, 0.1), rgba(0, 0, 0, 0));"
+          />
+        </a>
+      ))
+    }
+  </section>
+</div>
