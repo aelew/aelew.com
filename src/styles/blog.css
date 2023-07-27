@@ -1,3 +1,7 @@
+.prose {
+  @apply text-neutral-300;
+}
+
 .prose p {
   @apply leading-7;
 }
