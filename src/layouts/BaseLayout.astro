@@ -14,7 +14,7 @@ interface Props {
 const { title, description, ogImage } = Astro.props;
 
 const metaTitle = title + ' • aelew';
-const metaDescription = description ?? 'My website and blog.';
+const metaDescription = description ?? 'My personal website and blog.';
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -28,7 +28,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
     <title>{title} • aelew</title>
     <meta name="title" content={metaTitle} />
-    <meta name="description" content="My website and blog." />
+    <meta name="description" content={metaDescription} />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Andre Lew" />
