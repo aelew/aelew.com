@@ -1,4 +1,3 @@
-import config from 'astro.config.mjs';
 import { getCollection } from 'astro:content';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -8,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getBaseUrl() {
-  return config.site!;
+  return import.meta.env.DEV ? 'http://localhost:3000' : 'https://aelew.com';
 }
 
 export function formatDate(date: Date | string) {
