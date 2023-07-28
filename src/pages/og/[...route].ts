@@ -1,4 +1,4 @@
-import { formatDate, getBaseUrl } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 import type { APIContext, Props } from 'astro';
 import { OGImageRoute } from 'astro-og-canvas';
 
@@ -19,7 +19,9 @@ export const { getStaticPaths, get: generateResponse } = OGImageRoute({
     return {
       title: page.frontmatter.title,
       description: `${page.frontmatter.description}\n\n${date}`,
-      fonts: [`${getBaseUrl()}/fonts/Inter.var.woff2`],
+      fonts: [
+        'https://cdn.jsdelivr.net/gh/rsms/inter@v3.19/docs/font-files/Inter.var.woff2'
+      ],
       bgGradient: [[2, 8, 23]],
       logo: {
         path: './public/bird.png',
