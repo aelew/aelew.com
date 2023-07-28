@@ -1,6 +1,6 @@
 # aelew.com
 
-💻 My personal site and blog powered by Astro and Tailwind CSS.
+💻 My personal website and blog powered by [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com).
 
 ## Commands
 
