@@ -7,20 +7,44 @@ import '../styles/globals.css';
 
 interface Props {
   title: string;
+  description?: string;
+  ogImage?: string;
 }
 
-const { title } = Astro.props;
+const { title, description, ogImage } = Astro.props;
+
+const metaTitle = title + ' • aelew';
+const metaDescription = description ?? 'My website and blog.';
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="My website and blog." />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta charset="utf-8" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>{title} • aelew</title>
+    <meta name="title" content={metaTitle} />
+    <meta name="description" content="My website and blog." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Andre Lew" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:creator" content="@aelew0" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:image" content={ogImage} />
+    <meta property="twitter:title" content={metaTitle} />
+    <meta property="twitter:description" content={metaDescription} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body
     class="antialiased container gap-12 md:gap-20 flex flex-col min-h-screen p-10 md:py-16 text-sm text-neutral-400"

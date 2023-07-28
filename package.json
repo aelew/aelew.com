@@ -2,6 +2,7 @@
   "name": "aelew.com",
   "type": "module",
   "version": "0.0.1",
+  "author": "aelew",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -18,6 +19,8 @@
     "@types/react": "^18.2.17",
     "@types/react-dom": "^18.2.7",
     "astro": "^2.9.3",
+    "astro-og-canvas": "^0.1.8",
+    "astro-seo": "^0.7.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.263.1",

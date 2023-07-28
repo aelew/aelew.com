@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import { formatDate } from '@/lib/utils';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
-const posts = await getCollection('posts');
+const posts = await getCollection('blog');
 ---
 
 <BaseLayout title="Blog">
