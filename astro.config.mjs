@@ -7,6 +7,9 @@ import rehypeExternalLinks from 'rehype-external-links';
 // https://astro.build/config
 export default defineConfig({
   site: import.meta.env.DEV ? 'http://localhost:3000' : 'https://aelew.com',
+  experimental: {
+    viewTransitions: true
+  },
   markdown: {
     rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]]
   },

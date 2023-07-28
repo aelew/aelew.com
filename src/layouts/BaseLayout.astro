@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import BlurCircle from '../components/BlurCircle.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 import '@fontsource-variable/inter';
 import '../styles/globals.css';
@@ -46,6 +47,8 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <ViewTransitions />
   </head>
   <body
     class="antialiased container gap-12 md:gap-20 flex flex-col min-h-screen p-10 md:py-16 text-sm text-neutral-400"
