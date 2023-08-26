@@ -8,7 +8,11 @@ import {
   siAstro,
   siTailwindcss,
   siReact,
-  siRust
+  siRust,
+  siNextdotjs,
+  siJavascript,
+  siOpenai,
+  siConventionalcommits
 } from 'simple-icons';
 
 type Project = {
@@ -41,11 +45,25 @@ const projects: Project[] = [
       'A Raycast extension for downloading content from popular social media platforms with ease.'
   },
   {
+    title: '📆 UC Merced iCal Tool',
+    icons: [siTailwindcss, siNextdotjs, siTypescript],
+    href: 'https://github.com/aelew/ucmerced-ical',
+    description:
+      'A simple tool for importing UC Merced course schedules into Apple Calendar, Google Calendar, etc.'
+  },
+  {
     title: '🔗 unshorten',
     icons: [siRust],
     href: 'https://github.com/aelew/unshorten',
     description:
       'A simple CLI tool for unshortening URLs that supports a large variety of shorteners.'
+  },
+  {
+    title: '✨ conai',
+    icons: [siConventionalcommits, siOpenai, siJavascript],
+    href: 'https://github.com/aelew/conai',
+    description:
+      'A CLI tool for standardizing commit messages according to the Conventional Commits specification.'
   }
 ];
 ---
